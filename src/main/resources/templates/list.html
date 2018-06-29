@@ -1,23 +1,73 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>memegramlist</title>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>memegramlist</title>
+        <meta name="viewport" description="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+              integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-<a href="/add">Add an MEMEgram</a>
-<div th:each="Memeg : ${memegram}">
-    <h3 th:text="${Memeg.caption}"></h3>
-    <div th:if="${Memeg.memegname} !=null">
-        <img th:src="${Memeg.memegname}"/>
-        <hr/>
+        <style>
+            img {
+                max-height: 200px
+            }
+        </style>
+
+    </head>
+    <body>
+    <div th:fragment="navlinks">
+        <nav class="navbar navbar-expand-lg bg-info">
+            <a class="navbar-brand text-dark" href="list.html">Meme Gram</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-dark" href="/">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/add">New Meme Gram</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
     </div>
 
-    <h4 th:text="${Memeg.captionTwo}"></h4>
 
-</div>
+    <a href="/add">Upload an MEME Gram</a>
+    <div th:each="Memeg : ${memegram}">
+        <h3 th:text="${Memeg.caption}"></h3>
+        <div th:if="${Memeg.memegname} !=null">
+            <img th:src="${Memeg.memegname}"/>
+            <hr/>
+        </div>
+
+        <div>
+            <h4 th:text="${Memeg.content}"></h4>
 
 
-</body>
-</html>
+        </div>
+
+    </div>
+
+    <div th:fragment="footer" class=" p-4 footer-copyright" align="center">
+        <p>Copyright &copy; 2018</p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+
+
+    </body>
+    </html>

@@ -2,18 +2,17 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <title>memegram</title>
     <meta name="viewport" description="width=device-width, initial-scale=1.0">
-    <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
           integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
 </head>
 <body>
-<div th:fragment="navlinks">
+
+<div  th:fragment="navlinks">
     <nav class="navbar navbar-expand-lg bg-info">
-        <a class="navbar-brand text-dark" href="list.html">Meme Gram</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand text-dark" href="#">Meme Gram</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
@@ -29,23 +28,6 @@
         </div>
     </nav>
 </div>
-<div class="container jumbotorn bg-info">
-    <div>
-        <h1>Upload Your MEMEgram</h1>
-    </div>
-    <br><br/>
-
-    <form method="POST" th:action="@{/process}" th:object="${memeg}"
-          enctype="multipart/form-data">
-        First caption <input type="text" th:field="*{caption}" class="form-control"/><br/>
-        Second caption <input type="text" th:field="*{captionTwo}" class="form-control"/><br>
-        Description: <textarea rows="3" th:field="*{content}" class="form-control"></textarea><br/>
-        Uplod Meme Gram Image: <input type="file" name="file" class="form-control"/><br/><br/>
-        <input type="submit" name="Submit"/><br><br>
-
-    </form>
-
-</div>
 
 <div th:fragment="footer" class=" p-4 footer-copyright" align="center">
     <p>Copyright &copy; 2018</p>
@@ -60,6 +42,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-
 </body>
 </html>

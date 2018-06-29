@@ -48,4 +48,26 @@ public class HomeController {
         }
         return "redirect:/";
     }
+
+    /*============  details update delete ====================*/
+
+    @RequestMapping("/detail/{id}")
+    public String showMeme(@PathVariable("id") long id, Model model) {
+        model.addAttribute("memes", memegRepository.findById(id).get());
+        return "detail";
+    }
+
+    @RequestMapping("/update/{id}")
+    public String updateMeme(@PathVariable("id") long id, Model model) {
+        model.addAttribute("memegram", memegRepository.findById(id));
+        return "form";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String delMeme(@PathVariable("id") long id) {
+        memegRepository.deleteById(id);
+        return "redirect:/";
+    }
+
+
 }
