@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>memegramlist</title>
+</head>
+<body>
+
+<a href="/add">Add an MEMEgram</a>
+<div th:each="Memeg : ${memeg}">
+    <div th:if="${memeg.name} !=null">
+        <img th:src="${memeg.memegname}" />
+        <hr/>
+    </div>
+    <h3 th:text="${memeg.name}"></h3>
+    <h4 th:text="${memegname.realname}"></h4>
+
+</div>
+
+
+</body>
+</html>
