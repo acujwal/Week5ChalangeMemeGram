@@ -8,11 +8,17 @@ import javax.persistence.Id;
 @Entity
 public class Memeg {
 
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
+
+    private String caption;
+
+    private String captionTwo;
+
     private String memegname;
 
+    private String content;
 
     public long getId() {
         return id;
@@ -22,12 +28,28 @@ public class Memeg {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCaption() {
+        return caption;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public String getCaptionTwo() {
+        return captionTwo;
+    }
+
+    public void setCaptionTwo(String captionTwo) {
+        this.captionTwo = captionTwo;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getMemegname() {

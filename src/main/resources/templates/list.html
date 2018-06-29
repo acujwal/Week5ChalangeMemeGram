@@ -7,13 +7,14 @@
 <body>
 
 <a href="/add">Add an MEMEgram</a>
-<div th:each="Memeg : ${memeg}">
-    <div th:if="${memeg.name} !=null">
-        <img th:src="${memeg.memegname}" />
+<div th:each="Memeg : ${memegram}">
+    <h3 th:text="${Memeg.caption}"></h3>
+    <div th:if="${Memeg.memegname} !=null">
+        <img th:src="${Memeg.memegname}"/>
         <hr/>
     </div>
-    <h3 th:text="${memeg.name}"></h3>
-    <h4 th:text="${memegname.realname}"></h4>
+
+    <h4 th:text="${Memeg.captionTwo}"></h4>
 
 </div>
 

@@ -13,12 +13,14 @@
         <h1>Upload Your MEMEgram</h1>
     </div><br><br />
 
-<form method="POST" action="/add" th:object="${image}"
+<form method="POST" th:action="@{/process}" th:object="${memeg}"
       enctype="multipart/form-data">
-    Name of Meme: <input type="text" th:field="*{name}" />
-    Meme Gram Image: <input type="text" th:field="*{memegname}" /><br>
-
-    <input type="file" name="file"/><br/><br/>
+    First caption <input type="text" th:field="*{caption}" class="form-control"/><br/>
+     Second caption <input type="text"  th:field="*{captionTwo}" class="form-control" /><br>
+    Description:
+    <textarea rows="3" th:field="*{content}" class="form-control"></textarea><br/>
+    Meme Gram Image:
+    <input type="file" name="file" class="form-control"/><br/><br/>
     <input type="submit" name="Submit"/><br><br>
 
 </form>

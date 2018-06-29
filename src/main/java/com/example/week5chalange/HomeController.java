@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -19,28 +20,29 @@ public class HomeController {
     cloudinaryConfig cloudc;
 
     @RequestMapping("/")
-    public String listmemegram(Model model){
+    public String listmemegram(Model model) {
         model.addAttribute("memegram", memegRepository.findAll());
         return "list";
     }
+
     @GetMapping("/add")
-    public String newMemeg(Model model){
+    public String newMemeg(Model model) {
         model.addAttribute("memeg", new Memeg());
         return "form";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/process")
     public String processActor(@ModelAttribute Memeg memeg,
-                               @RequestParam("file")MultipartFile file){
+                               @RequestParam("file") MultipartFile file) {
 
-        if(file.isEmpty()){
+        if (file.isEmpty()) {
             return "redirect:/add";
         }
-        try{
+        try {
             Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
             memeg.setMemegname(uploadResult.get("url").toString());
             memegRepository.save(memeg);
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             return "redirect:/add";
         }
